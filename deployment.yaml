@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app-2
+  name: my-app-debug
   labels:
-    app: my-app-2
+    app: my-app-debug
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app-2
+      app: my-app-debug
   template:
     metadata:
       labels:
-        app: my-app-2
+        app: my-app-debug
     spec:
       containers:
-      - name: simple-express
-        image: chimezdev/reverse-proxy-nginx
+      - name: debug-app-logs
+        image: chimezdev/debugging-using-applogs
         ports:
         - containerPort: 8080
         livenessProbe:
